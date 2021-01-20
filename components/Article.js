@@ -151,3 +151,13 @@ data.forEach((data) => {
 
 // Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
 // Refresh the page to see the new article.
+
+const newArticle = {
+  title: "Test",
+  date: "1/19/2021",
+  firstParagraph: "test p1",
+  secondParagraph: "test p2",
+  thirdParagraph: "test p3",
+};
+
+document.querySelector(".articles").appendChild(articleMaker(newArticle));
