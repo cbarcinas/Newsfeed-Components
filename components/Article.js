@@ -102,8 +102,9 @@ const data = [
 //   <span class="expandButton">+</span>
 // </div>
 const articles = document.querySelector(".articles");
-
+//we pass in 'data' as a parameter bc that is the name of our variable: 'data'
 function articleMaker(data) {
+  // creating elements in MEMORY, not yet in DOM
   const article = document.createElement("div");
   const articleTitle = document.createElement("h2");
   const articleDate = document.createElement("p");
@@ -128,15 +129,17 @@ function articleMaker(data) {
   paraOne.textContent = data.firstParagraph;
   paraTwo.textContent = data.secondParagraph;
   paraThree.textContent = data.thirdParagraph;
+  // we need to create an actual button so that we can click on it
   btn.textContent = "+";
 
+  //this adds event listener to the article and gives it a class of 'article-open'
   article.addEventListener("click", () => {
     article.classList.toggle("article-open");
   });
-
+  // we always need to return to the thing that we are creating so that we have access to that thing outside of the function.
   return article;
 }
-
+// forEach iterates over the passed array [data] and invokes the function at every index.
 data.forEach((data) => {
   articles.appendChild(articleMaker(data));
 });
